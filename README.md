@@ -1,6 +1,7 @@
-# codepath-week-1
 
-Basic Instagram Client
+# Codepath week 1 : Basic Instagram Client #
+
+Time spent: 8-10 hours.
 
 Required US:
  [x] User can scroll through current popular photos from Instagram
@@ -26,3 +27,10 @@ The following advanced user stories are optional:
  [x] Advanced: Improve the user interface through styling and coloring
  
  [ ] Bonus: Allow user to view all comments for an image within a separate screen or a dialog fragment
+ 
+
+Walk Through 1
+--------------
+![Video Walkthrough](https://raw.githubusercontent.com/ash-edmodo/codepath-week-1/master/walkthrough1.gif)
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
