@@ -67,7 +67,9 @@ public class InstagramActivity extends ActionBarActivity {
                     for (int i = 0; i < mediaJson.length(); i++) {
                         final JSONObject mJson = mediaJson.getJSONObject(i);
 
-                        final String authorName = mJson.getJSONObject("user").getString("username");
+                        final JSONObject userJsonObject = mJson.getJSONObject("user");
+                        final String authorName = userJsonObject.getString("username");
+                        final String profileImageUrl = userJsonObject.getString("profile_picture");
                         final String caption = mJson.getJSONObject("caption").getString("text");
                         final String createdTimeString = mJson.getString("created_time");
                         final String imageUrl = mJson.getJSONObject("images").getJSONObject("standard_resolution").getString("url");
@@ -75,7 +77,7 @@ public class InstagramActivity extends ActionBarActivity {
                         final int likesCount = mJson.getJSONObject("likes").getInt("count");
                         final Date createdTime = new Date(Long.parseLong(createdTimeString) * 1000);
 
-                        InstagramMedia m = new InstagramMedia("photo", caption, imageUrl, authorName, imageHeight, likesCount, createdTime);
+                        InstagramMedia m = new InstagramMedia("photo", caption, imageUrl, authorName, profileImageUrl, imageHeight, likesCount, createdTime);
                         media.add(m);
                     }
                 } catch (JSONException e) {

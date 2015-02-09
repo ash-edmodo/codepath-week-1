@@ -5,7 +5,7 @@
     </style>
 
     <style name="text">
-        <item name="android:padding">5dp</item>
+        <item name="android:padding">8dp</item>
         <item name="android:textSize">15sp</item>
         <item name="android:layout_below">@id/caption_text_view</item>
         <item name="android:layout_width">wrap_content</item>
@@ -14,5 +14,4 @@
     <style name="footer_text" parent="text">
         <item name="android:layout_below">@id/caption_text_view</item>
     </style>
-
 </resources>

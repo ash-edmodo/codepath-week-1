@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class InstagramMedia {
 
+    private final String mProfileImageUrl;
     private int mImageHeight;
     private int mLikesCount;
     private final Date createTime;
@@ -12,11 +13,12 @@ public class InstagramMedia {
     private String mImageUrl;
     private String mAuthorName;
 
-    public InstagramMedia(String type, String caption, String imageUrl, String authorName, int imageHeight, int likesCount, Date createTime) {
+    public InstagramMedia(String type, String caption, String imageUrl, String authorName, String profileImageUrl, int imageHeight, int likesCount, Date createTime) {
         mType = type;
         mCaption = caption;
         mImageUrl = imageUrl;
         mAuthorName = authorName;
+        mProfileImageUrl = profileImageUrl;
         mImageHeight = imageHeight;
         mLikesCount = likesCount;
         this.createTime = createTime;
@@ -64,5 +66,9 @@ public class InstagramMedia {
 
     public Date getCreateTime() {
         return createTime;
+    }
+
+    public String getmProfileImageUrl() {
+        return mProfileImageUrl;
     }
 }

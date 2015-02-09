@@ -32,27 +32,34 @@ public class InstagramMediaAdapter extends ArrayAdapter<InstagramMedia> {
         // get item
         InstagramMedia item = getItem(position);
 
+        final Context context = getContext();
         if (convView == null) {
-            convView = LayoutInflater.from(getContext()).inflate(R.layout.photo_item, parGroup, false);
+            convView = LayoutInflater.from(context).inflate(R.layout.photo_item, parGroup, false);
         }
 
         ImageView imageView = (ImageView) convView.findViewById(R.id.ivPhoto);
         TextView captionTextView = (TextView) convView.findViewById(R.id.caption_text_view);
         TextView usernameTextView = (TextView) convView.findViewById(R.id.username_text_view);
+        ImageView profileImageView = (ImageView) convView.findViewById(R.id.profile_image_view);
         TextView timeStampTextView = (TextView) convView.findViewById(R.id.timestamp_text_view);
         TextView likesTextView = (TextView) convView.findViewById(R.id.likes_text_view);
 
         imageView.setImageResource(0);
-        Picasso.with(getContext())
+        Picasso.with(context)
                 .load(item.getImageUrl())
-                .resize(DeviceDimensionsHelper.getDisplayWidth(getContext()),0).into(imageView);
+                .placeholder(R.drawable.loading_indicator)
+                .resize(DeviceDimensionsHelper.getDisplayWidth(context),0).into(imageView);
 
+        Picasso.with(context)
+                .load(item.getmProfileImageUrl())
+                .into(profileImageView);
+        
         final Date createTime = item.getCreateTime();
         final String createTimeFormatted = DateUtils.getRelativeTimeSpanString(createTime.getTime()).toString();
         captionTextView.setText(item.getCaption());
         usernameTextView.setText(item.getAuthorName());
         timeStampTextView.setText(createTimeFormatted);
-        likesTextView.setText(String.format(getContext().getString(R.string.n_likes), item.getLikesCount()));
+        likesTextView.setText(String.format(context.getString(R.string.n_likes), item.getLikesCount()));
         return convView;
     }
 }
